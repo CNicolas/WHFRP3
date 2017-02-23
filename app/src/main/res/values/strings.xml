@@ -1,0 +1,187 @@
+<resources>
+    <string name="app_name"
+        translatable="false">WHFRP3</string>
+
+    <!--Image descriptions-->
+    <string name="characteristicDice">Characteristic Dice</string>
+    <string name="recklessDice">Reckless Dice</string>
+    <string name="conservativeDice">Conservative Dice</string>
+    <string name="expertiseDice">Expertise Dice</string>
+    <string name="fortuneDice">fortune Dice</string>
+    <string name="misfortuneDice">Misfortune Dice</string>
+    <string name="challengeDice">Challenge Dice</string>
+    <!--End of images-->
+
+    <!--Constant Values-->
+    <string name="zero"
+        translatable="false">0</string>
+    <string name="ok">OK</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="charac_strength_long">Strength</string>
+    <string name="charac_toughness_long">Toughness</string>
+    <string name="charac_agility_long">Agility</string>
+    <string name="charac_intelligence_long">Intelligence</string>
+    <string name="charac_willpower_long">Willpower</string>
+    <string name="charac_fellowship_long">Fellowship</string>
+
+    <string name="charac_strength_short">Str</string>
+    <string name="charac_toughness_short">Tou</string>
+    <string name="charac_agility_short">Agi</string>
+    <string name="charac_intelligence_short">Int</string>
+    <string name="charac_willpower_short">Wil</string>
+    <string name="charac_fellowship_short">Fel</string>
+    <!--End of Constant Values-->
+
+    <string name="btn_launchText">Roll !</string>
+    <string name="btn_saveHand">Save the hand</string>
+    <string name="btn_updateHand">Update the hand</string>
+    <string name="resultsTitle">Results</string>
+    <string name="insertHandTitleTitle">Insert a title for this hand</string>
+
+    <!--Actions-->
+    <string name="action_home">Home</string>
+    <string name="action_launch10">Launch 10 times</string>
+    <string name="action_launch100">Launch 100 times</string>
+    <string name="action_launch1000">Launch 1000 times</string>
+    <string name="action_launch10000">Launch 10000 times</string>
+    <!--End of Actions-->
+
+    <string name="average_boon_format">Average number of boons : %1$s</string>
+    <string name="successful_launches_number_format">You succeeded on %1$d throws (%2$s%%)</string>
+    <string name="average_sigmar_format">Average number of Sigmar comets : %1$s</string>
+    <string name="average_chaos_format">Average number of Chaos stars : %1$s</string>
+    <string name="average_failure_format">Average number of failures : %1$s</string>
+    <string name="average_bane_format">Average number of banes : %1$s</string>
+    <string name="launches_number_format">On %d throws…</string>
+    <string name="empty_hand_name">Empty hand name</string>
+
+    <!--Pages-->
+    <string name="page_home">Home</string>
+    <string name="page_characteristics">Characteristics</string>
+    <string name="page_inventory">Inventory</string>
+    <string name="average_success_format">Average number of success : %1$s</string>
+    <string name="page_skills">Skills</string>
+    <string name="updated">Successfullty updated</string>
+    <string name="home_create_player">Create a new Player</string>
+    <string name="age">Age</string>
+    <string name="slash"
+        translatable="false">/</string>
+    <string name="description">Description</string>
+    <string name="size">Size</string>
+    <string name="rank">Rank</string>
+    <string name="name">Name</string>
+    <string name="career">Career</string>
+    <string name="wounds">Wounds</string>
+    <string name="reckless">Reckless</string>
+    <string name="conservative">Conservative</string>
+    <string name="stance">Stance</string>
+    <string name="btn_editing">Editing</string>
+    <string name="btn_not_editing">Not editing</string>
+    <!--End of pages-->
+
+    <!-- Inventory -->
+    <string name="armor">Armor</string>
+    <string name="weapon">Weapon</string>
+    <string name="usable_item">Usable item</string>
+    <string name="item">Item</string>
+    <!-- End of inventory -->
+
+    <string name="dummy_string"
+        translatable="false">Dummy String</string>
+    <string name="stance_conservative_format">%d Conservative</string>
+    <string name="stance_reckless_format">%d Reckless</string>
+    <string name="neutral">Neutral</string>
+    <string name="max_wounds">Wounds points</string>
+    <string name="max_corruption">Corruption points</string>
+    <string name="xp"
+        translatable="false">XP</string>
+    <string name="centimeters"
+        translatable="false">cm</string>
+    <string name="quality_low">Low</string>
+    <string name="quality_normal">Normal</string>
+    <string name="quality_superior">Superior</string>
+    <string name="quality">Quality</string>
+    <string name="encumbrance">Encumbrance</string>
+    <string name="inventory_details">Details</string>
+    <string name="weapon_damage">Damage</string>
+    <string name="weapon_critical_level">Critical level</string>
+    <string name="armor_defense">Defense</string>
+    <string name="armor_soak">Soak</string>
+    <string name="usable_item_load">Loads</string>
+    <string name="item_type">Type</string>
+    <string name="delete">Delete</string>
+    <string name="item_menu_edit">Edit item</string>
+    <string name="equip">Equip</string>
+    <string name="unequip">Unequip</string>
+    <string name="weapon_range">Range</string>
+    <string name="range_engaged">Engaged</string>
+    <string name="range_short">Short</string>
+    <string name="range_medium">Medium</string>
+    <string name="range_long">Long</string>
+    <string name="range_extreme">Extreme</string>
+    <string name="quantity">Quantity</string>
+    <string name="race_human">Human</string>
+    <string name="race_dwarf">Dwarf</string>
+    <string name="race_high_elf">High Elf</string>
+    <string name="race_wood_elf">Wood Elf</string>
+    <string name="encumbrance_format"
+        translatable="false">%s / %s (%s)</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_remove">Remove</string>
+    <string name="error_title">Error</string>
+    <string name="minus"
+        translatable="false">-</string>
+    <string name="plus"
+        translatable="false">+</string>
+    <string name="stress">Stress</string>
+    <string name="exertion">Exertion</string>
+    <string name="talent_faith">Faith</string>
+    <string name="talent_tactics">Tactics</string>
+    <string name="talent_reputation">Reputation</string>
+    <string name="save">Save</string>
+    <string name="talent_career">Career</string>
+    <string name="talent_affinity">Affinity</string>
+    <string name="talent_tour">Tour</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="page_talents">Talents</string>
+    <string name="page_careers">Careers</string>
+    <string name="quality_magic">Magical</string>
+    <string name="page_adventure">Adventure</string>
+    <string name="page_players">Players</string>
+    <string name="page_statistics">Statistics</string>
+    <string name="page_launch">Launch dices</string>
+    <string name="page_item_edit">Item creation</string>
+    <string name="talent_order">Order</string>
+    <string name="search">Search</string>
+    <string name="go">Go !</string>
+    <string name="action">Action</string>
+    <string name="session">Once by session</string>
+    <string name="passive">Passive</string>
+    <string name="talent">Talent</string>
+    <string name="cooldown">Cooldown</string>
+    <string name="empty_string"
+        translatable="false" />
+    <string name="no_talent_found">No talent found</string>
+    <string name="page_items">Items</string>
+    <string name="page_specializations">Specializations</string>
+    <string name="characteristic">Characteristic</string>
+    <string name="skill">Skill</string>
+    <string name="no_specialization_found">No specialization found</string>
+    <string name="s">S</string>
+    <string name="advanced">Advanced</string>
+    <string name="basic">Basic</string>
+    <string name="race">Race</string>
+    <string name="warhammer_logo">Warhammer Logo</string>
+    <string name="equipped">Equipped</string>
+    <string name="possible_actions">Possible actions</string>
+    <string name="deleted">Deleted</string>
+    <string name="exhaust">Exhaust</string>
+    <string name="exhausted">Exhausted</string>
+    <string name="added">added</string>
+    <string name="ready">Ready</string>
+    <string name="unequipped">Unequipped</string>
+
+</resources>
