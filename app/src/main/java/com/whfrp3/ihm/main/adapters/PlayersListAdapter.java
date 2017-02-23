@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.whfrp3.R;
-import com.whfrp3.WHFRP3;
 import com.whfrp3.database.entities.Player;
 
 import java.util.ArrayList;
@@ -53,10 +52,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     public void setPlayers(List<Player> players) {
         dataset = players;
 
-        Player emptyPlayer = new Player();
-        emptyPlayer.setName(WHFRP3.getResourceString(R.string.home_create_player));
-        dataset.add(0, emptyPlayer);
-
         notifyDataSetChanged();
     }
 
@@ -70,7 +65,7 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     @Override
     public void onBindViewHolder(PlayersListAdapter.PlayerViewHolder holder, int position) {
         Player player = dataset.get(position);
-        holder.name.setText("Name : " + player.getName());
+        holder.name.setText(player.getName());
     }
 
     @Override
