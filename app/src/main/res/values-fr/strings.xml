@@ -161,6 +161,7 @@
     <string name="added">ajouté</string>
     <string name="ready">Prêt</string>
     <string name="unequipped">Déséquipé</string>
+    <string name="nameLabelWithColon">Nom :</string>
     <!-- End of inventory -->
 
 </resources>

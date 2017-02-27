@@ -4,15 +4,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.whfrp3.R;
 import com.whfrp3.database.entities.Player;
+import com.whfrp3.ihm.main.adapters.viewholders.PlayerViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.PlayerViewHolder> {
+public class PlayersListAdapter extends RecyclerView.Adapter<PlayerViewHolder> {
     private PlayerClickListener clickListener;
     private List<Player> dataset;
 
@@ -20,30 +20,6 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
         this.clickListener = clickListener;
         this.dataset = new ArrayList<>();
     }
-
-    //region SubClasses
-    public interface PlayerClickListener {
-        void onPlayerClick(int position);
-    }
-
-    static class PlayerViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView name;
-
-        public PlayerViewHolder(View itemView, final PlayerClickListener clickListener) {
-            super(itemView);
-            name = (TextView) itemView.findViewById(R.id.player_name);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (clickListener != null) {
-                        clickListener.onPlayerClick(getAdapterPosition());
-                    }
-                }
-            });
-        }
-    }
-    //endregion
 
     public Player getPlayer(int position) {
         return dataset.get(position);
@@ -56,14 +32,14 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     }
 
     @Override
-    public PlayersListAdapter.PlayerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PlayerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.element_list_player, parent, false);
         return new PlayerViewHolder(view, clickListener);
     }
 
     @Override
-    public void onBindViewHolder(PlayersListAdapter.PlayerViewHolder holder, int position) {
+    public void onBindViewHolder(PlayerViewHolder holder, int position) {
         Player player = dataset.get(position);
         holder.name.setText(player.getName());
     }
@@ -71,5 +47,9 @@ public class PlayersListAdapter extends RecyclerView.Adapter<PlayersListAdapter.
     @Override
     public int getItemCount() {
         return dataset.size();
+    }
+
+    public interface PlayerClickListener {
+        void onPlayerClick(int position);
     }
 }

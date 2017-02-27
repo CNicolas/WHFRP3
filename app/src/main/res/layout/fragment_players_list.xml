@@ -9,7 +9,7 @@
         android:id="@+id/splashscreen"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:contentDescription="@string/warhammer_logo"
+        android:contentDescription="@string/splash_screen"
         android:src="@drawable/warhammer_v3_logo" />
 
     <LinearLayout
@@ -21,6 +21,8 @@
         android:layout_marginTop="@dimen/medium_padding"
         android:gravity="center"
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/medium_padding"
+        android:paddingRight="@dimen/medium_padding"
         android:weightSum="6">
 
 
@@ -50,8 +52,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_players"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/new_player_fields"
         android:layout_gravity="center"
         android:scrollbars="vertical" />
+
 </RelativeLayout>

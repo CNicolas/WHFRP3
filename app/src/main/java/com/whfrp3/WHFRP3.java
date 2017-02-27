@@ -2,6 +2,8 @@ package com.whfrp3;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.whfrp3.database.entities.DaoMaster;
@@ -42,5 +44,9 @@ public class WHFRP3 extends Application {
 
     public static String getResourceString(int resId) {
         return context.getString(resId);
+    }
+
+    public static Drawable getResourceDrawable(int resId) {
+        return ContextCompat.getDrawable(context, resId);
     }
 }

@@ -25,4 +25,8 @@ public class PlayerService {
     public Player getPlayerById(long id) {
         return WHFRP3.getDaoSession().getPlayerDao().queryBuilder().where(PlayerDao.Properties.Id.eq(id)).unique();
     }
+
+    public void updatePlayer(Player player) {
+        WHFRP3.getDaoSession().getPlayerDao().update(player);
+    }
 }

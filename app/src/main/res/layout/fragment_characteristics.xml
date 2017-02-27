@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    android:padding="@dimen/small_padding">
+
+    <!--&lt;!&ndash;Only child of ScrollView&ndash;&gt;-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/characteristics_fragment_layout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--&lt;!&ndash;Name/Rank&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout_name_rank"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginEnd="@dimen/medium_padding"-->
+    <!--android:layout_marginStart="@dimen/medium_padding"-->
+    <!--android:gravity="center_horizontal">-->
+
+    <!--<TextView-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:layout_weight="1"-->
+    <!--android:hint="@string/name"-->
+    <!--android:labelFor="@+id/player_name"-->
+    <!--android:text="@string/nameLabelWithColon" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_name"-->
+    <!--style="@style/DeactivableCharacteristicText"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_weight="100"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:hint="@string/name"-->
+    <!--android:inputType="textCapWords|textNoSuggestions" />-->
+
+    <!--<TextView-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:layout_weight="1"-->
+    <!--android:hint="@string/rank"-->
+    <!--android:labelFor="@+id/player_rank"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/rank)}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_rank"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:layout_weight="1"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.rank}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Career&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout_career"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/layout_name_rank"-->
+    <!--android:layout_marginEnd="@dimen/big_padding"-->
+    <!--android:layout_marginStart="@dimen/big_padding"-->
+    <!--android:gravity="center_horizontal">-->
+
+    <!--<TextView-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:hint="@string/career"-->
+    <!--android:labelFor="@+id/player_career"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/career)}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_career"-->
+    <!--style="@style/DeactivableCharacteristicText"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:hint="@string/career"-->
+    <!--android:text="@={player.career}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Wounds/XP/Corruption&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout_wounds_xp_corruption"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/layout_career"-->
+    <!--android:layout_marginTop="@dimen/medium_padding"-->
+    <!--android:gravity="center_horizontal">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginStart="@dimen/big_padding"-->
+    <!--android:contentDescription="@string/max_wounds"-->
+    <!--android:labelFor="@+id/player_max_wounds"-->
+    <!--android:src="@drawable/ic_bandages_black" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_max_wounds"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:maxLength="3"-->
+    <!--android:text="@={player.max_wounds}" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginStart="@dimen/big_padding"-->
+    <!--android:hint="@string/xp"-->
+    <!--android:labelFor="@+id/player_experience"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/xp)}"-->
+    <!--android:textColor="@color/black_text"-->
+    <!--android:textSize="25sp"-->
+    <!--android:textStyle="bold|italic" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_experience"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:maxLength="3"-->
+    <!--android:text="@={player.max_experience}" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="center"-->
+    <!--android:labelFor="@+id/player_max_experience"-->
+    <!--android:text="@string/slash" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_max_experience"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:maxLength="3"-->
+    <!--android:text="@={player.max_experience}" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imageView"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_marginStart="@dimen/big_padding"-->
+    <!--android:contentDescription="@string/max_corruption"-->
+    <!--android:labelFor="@+id/player_max_corruption"-->
+    <!--android:src="@drawable/ic_chaos_black_36" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_max_corruption"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.max_corruption}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Characteristics EditTexts&ndash;&gt;-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/layout_characteristics"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/layout_wounds_xp_corruption"-->
+    <!--android:layout_marginTop="@dimen/medium_padding"-->
+    <!--android:orientation="vertical"-->
+    <!--android:paddingEnd="80dp"-->
+    <!--android:paddingStart="0dp">-->
+
+    <!--&lt;!&ndash;Strength&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/strength_layout"-->
+    <!--style="@style/CharacteristicLinearLayout">-->
+
+    <!--<TextView-->
+    <!--style="@style/CharacteristicLabel"-->
+    <!--android:labelFor="@+id/strength_characteristic"-->
+    <!--android:text="@string/charac_strength_long" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/strength_characteristic"-->
+    <!--style="@style/CharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.STRENGTH).value}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/strength_fortune"-->
+    <!--style="@style/CharacteristicFortuneNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.STRENGTH).fortuneValue}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Toughness&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/toughness_layout"-->
+    <!--style="@style/CharacteristicLinearLayout"-->
+    <!--android:layout_below="@id/strength_layout">-->
+
+    <!--<TextView-->
+    <!--style="@style/CharacteristicLabel"-->
+    <!--android:labelFor="@+id/toughness_characteristic"-->
+    <!--android:text="@string/charac_toughness_long" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/toughness_characteristic"-->
+    <!--style="@style/CharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.TOUGHNESS).value}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/toughness_fortune"-->
+    <!--style="@style/CharacteristicFortuneNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.TOUGHNESS).fortuneValue}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Agility&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/agility_layout"-->
+    <!--style="@style/CharacteristicLinearLayout"-->
+    <!--android:layout_below="@id/toughness_layout">-->
+
+    <!--<TextView-->
+    <!--style="@style/CharacteristicLabel"-->
+    <!--android:labelFor="@+id/agility_characteristic"-->
+    <!--android:text="@string/charac_agility_long" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/agility_characteristic"-->
+    <!--style="@style/CharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.AGILITY).value}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/agility_fortune"-->
+    <!--style="@style/CharacteristicFortuneNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.AGILITY).fortuneValue}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Intelligence&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/intelligence_layout"-->
+    <!--style="@style/CharacteristicLinearLayout"-->
+    <!--android:layout_below="@id/agility_layout">-->
+
+    <!--<TextView-->
+    <!--style="@style/CharacteristicLabel"-->
+    <!--android:labelFor="@+id/intelligence_characteristic"-->
+    <!--android:text="@string/charac_intelligence_long" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/intelligence_characteristic"-->
+    <!--style="@style/CharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.INTELLIGENCE).value}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/intelligence_fortune"-->
+    <!--style="@style/CharacteristicFortuneNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.INTELLIGENCE).fortuneValue}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Will Power&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/willpower_layout"-->
+    <!--style="@style/CharacteristicLinearLayout"-->
+    <!--android:layout_below="@id/intelligence_layout">-->
+
+    <!--<TextView-->
+    <!--style="@style/CharacteristicLabel"-->
+    <!--android:labelFor="@+id/willpower_characteristic"-->
+    <!--android:text="@string/charac_willpower_long" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/willpower_characteristic"-->
+    <!--style="@style/CharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.WILLPOWER).value}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/willpower_fortune"-->
+    <!--style="@style/CharacteristicFortuneNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.WILLPOWER).fortuneValue}" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Fellowship&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/fellowship_layout"-->
+    <!--style="@style/CharacteristicLinearLayout"-->
+    <!--android:layout_below="@id/willpower_layout">-->
+
+    <!--<TextView-->
+    <!--style="@style/CharacteristicLabel"-->
+    <!--android:labelFor="@+id/fellowship_characteristic"-->
+    <!--android:text="@string/charac_fellowship_long" />-->
+
+
+    <!--<EditText-->
+    <!--android:id="@+id/fellowship_characteristic"-->
+    <!--style="@style/CharacteristicNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.FELLOWSHIP).value}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/fellowship_fortune"-->
+    <!--style="@style/CharacteristicFortuneNumberEditText"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:text="@={player.getCharacteristic(Characteristic.FELLOWSHIP).fortuneValue}" />-->
+
+    <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
+
+    <!--&lt;!&ndash;Reckless/Max_Reckless, Conservative/Max_Conservative&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout_stance"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/layout_characteristics"-->
+    <!--android:layout_marginEnd="@dimen/big_padding"-->
+    <!--android:layout_marginStart="@dimen/big_padding"-->
+    <!--android:layout_marginTop="@dimen/medium_padding"-->
+    <!--android:baselineAligned="false"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:weightSum="2">-->
+
+    <!--&lt;!&ndash;Conservative&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginEnd="@dimen/medium_padding"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/conservative">-->
+
+    <!--<TextView-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:hint="@string/conservative"-->
+    <!--android:labelFor="@+id/player_max_conservative"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/conservative)}"-->
+    <!--android:textColor="@android:color/white" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_max_conservative"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:gravity="center"-->
+    <!--android:hint="@string/zero"-->
+    <!--android:inputType="number"-->
+    <!--android:maxLength="1"-->
+    <!--android:text="@={player.max_conservative}"-->
+    <!--android:textColor="@color/characteristic_text_white" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Reckless&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginStart="@dimen/medium_padding"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/reckless">-->
+
+    <!--<TextView-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:hint="@string/reckless"-->
+    <!--android:labelFor="@+id/player_max_reckless"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/reckless)}"-->
+    <!--android:textColor="@android:color/white" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_max_reckless"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:gravity="center"-->
+    <!--android:hint="@string/zero"-->
+    <!--android:inputType="number"-->
+    <!--android:maxLength="1"-->
+    <!--android:text="@={player.max_reckless}"-->
+    <!--android:textColor="@color/characteristic_text_white" />-->
+    <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Race&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/layout_race"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="36dp"-->
+    <!--android:layout_below="@id/layout_stance"-->
+    <!--android:layout_marginEnd="@dimen/big_padding"-->
+    <!--android:layout_marginStart="@dimen/big_padding"-->
+    <!--android:layout_marginTop="@dimen/medium_padding"-->
+    <!--android:gravity="center">-->
+
+    <!--<TextView-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:hint="@string/race"-->
+    <!--android:labelFor="@+id/player_race"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/race)}" />-->
+
+    <!--<Spinner-->
+    <!--android:id="@+id/player_race_spinner"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:enabled="@{player.inEdition}" />-->
+    <!--</LinearLayout>-->
+
+    <!--&lt;!&ndash;Age/Size&ndash;&gt;-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/layout_age_size"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/layout_race"-->
+    <!--android:layout_marginEnd="@dimen/medium_padding"-->
+    <!--android:layout_marginStart="@dimen/medium_padding"-->
+    <!--android:layout_marginTop="@dimen/medium_padding"-->
+    <!--android:gravity="center_horizontal"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--&lt;!&ndash;Age&ndash;&gt;-->
+    <!--<TextView-->
+    <!--android:id="@+id/label_age"-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:layout_alignBaseline="@+id/player_age"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:hint="@string/age"-->
+    <!--android:labelFor="@+id/player_age"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/age)}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_age"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:layout_toEndOf="@+id/label_age"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:maxLength="4"-->
+    <!--android:text="@={player.age}" />-->
+
+    <!--&lt;!&ndash;Size&ndash;&gt;-->
+    <!--<TextView-->
+    <!--android:id="@+id/label_size"-->
+    <!--style="@style/PlayerSimpleLabel"-->
+    <!--android:layout_alignBaseline="@+id/player_size"-->
+    <!--android:layout_toEndOf="@+id/player_age"-->
+    <!--android:hint="@string/size"-->
+    <!--android:labelFor="@+id/player_size"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/size)}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_size"-->
+    <!--style="@style/SimpleCharacteristicNumberEditText"-->
+    <!--android:layout_toEndOf="@+id/label_size"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:maxLength="3"-->
+    <!--android:text="@={player.size}" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignBaseline="@+id/player_size"-->
+    <!--android:layout_gravity="start|center_vertical"-->
+    <!--android:layout_toEndOf="@+id/player_size"-->
+    <!--android:labelFor="@+id/player_size"-->
+    <!--android:text="@string/centimeters" />-->
+    <!--</RelativeLayout>-->
+
+    <!--&lt;!&ndash;Description&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/layout_age_size"-->
+    <!--android:layout_marginBottom="@dimen/big_padding"-->
+    <!--android:layout_marginTop="@dimen/medium_padding"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:labelFor="@+id/player_description"-->
+    <!--android:text="@{BindingUtils.labelWithColon(@string/description)}" />-->
+
+    <!--<EditText-->
+    <!--android:id="@+id/player_description"-->
+    <!--style="@style/DescriptionField"-->
+    <!--android:enabled="@{player.inEdition}"-->
+    <!--android:hint="@string/description"-->
+    <!--android:text="@={player.description}"-->
+    <!--android:textColor="@color/characteristic_text" />-->
+    <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+</ScrollView>
