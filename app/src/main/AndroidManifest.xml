@@ -22,7 +22,8 @@
         <activity
             android:name=".ihm.player.PlayerActivity"
             android:parentActivityName="com.whfrp3.ihm.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.whfrp3.ihm.main.MainActivity" />

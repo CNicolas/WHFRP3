@@ -21,6 +21,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(indexes = {
@@ -107,6 +108,16 @@ public class Player implements IEncumbrance {
 
     @Generated(hash = 30709322)
     public Player() {
+    }
+
+    public void initCharacteristics() {
+        List<Characteristic> characteristics = new ArrayList<>();
+
+        for (CharacteristicEnum characEnum : CharacteristicEnum.values()) {
+            characteristics.add(new Characteristic(characEnum, 0, 0));
+        }
+
+        this.characteristics = characteristics;
     }
 
     public Characteristic getCharacteristic(CharacteristicEnum characteristicEnum) {

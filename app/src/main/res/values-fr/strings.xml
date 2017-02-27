@@ -162,6 +162,15 @@
     <string name="ready">Prêt</string>
     <string name="unequipped">Déséquipé</string>
     <string name="nameLabelWithColon">Nom :</string>
+    <string name="careerLabelWithColon">Carrière :</string>
+    <string name="rankLabelWithColon">Rang :</string>
+    <string name="descriptionLabelWithColon">Description :</string>
+    <string name="ageLabelWithColon">Age :</string>
+    <string name="sizeLabelWithColon">Taille :</string>
+    <string name="raceLabelWithColon">Race :</string>
+    <string name="xpLabelWithColon">XP :</string>
+    <string name="conservativeLabelWithColon">Prudence :</string>
+    <string name="recklessLabelWithColon">Témérité :</string>
     <!-- End of inventory -->
 
 </resources>

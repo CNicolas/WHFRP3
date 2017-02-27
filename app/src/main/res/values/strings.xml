@@ -184,6 +184,16 @@
     <string name="ready">Ready</string>
     <string name="unequipped">Unequipped</string>
     <string name="nameLabelWithColon">Name :</string>
-    <string name="splash_screen">Splash screen</string>
+    <string name="rankLabelWithColon">Rank :</string>
+    <string name="careerLabelWithColon">Career :</string>
+    <string name="splash_screen"
+        translatable="false">Splash screen</string>
+    <string name="descriptionLabelWithColon">Description :</string>
+    <string name="sizeLabelWithColon">Size :</string>
+    <string name="ageLabelWithColon">Age :</string>
+    <string name="raceLabelWithColon">Race :</string>
+    <string name="recklessLabelWithColon">Reckless :</string>
+    <string name="conservativeLabelWithColon">Conservative :</string>
+    <string name="xpLabelWithColon">XP :</string>
 
 </resources>

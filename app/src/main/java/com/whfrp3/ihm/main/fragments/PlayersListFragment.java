@@ -107,6 +107,7 @@ public class PlayersListFragment extends Fragment {
 
             Player player = new Player();
             player.setName(playerName);
+            player.initCharacteristics();
 
             long id = playerService.insertPlayer(player);
             WHFRP3.setPlayer(playerService.getPlayerById(id));

@@ -4,16 +4,18 @@ package com.whfrp3.database.entities.model;
 import com.whfrp3.database.enums.CharacteristicEnum;
 
 public class Characteristic {
-
-    // region Properties
     private CharacteristicEnum characteristicEnum;
 
     private int value;
 
     private int fortuneValue;
-    // endregion
 
-    // region Getters and Setters
+    public Characteristic(CharacteristicEnum characteristicEnum, int value, int fortuneValue) {
+        this.characteristicEnum = characteristicEnum;
+        this.value = value;
+        this.fortuneValue = fortuneValue;
+    }
+
     public CharacteristicEnum getCharacteristicEnum() {
         return characteristicEnum;
     }
@@ -37,7 +39,6 @@ public class Characteristic {
     public void setFortuneValue(int fortuneValue) {
         this.fortuneValue = fortuneValue;
     }
-    // endregion
 
     @Override
     public String toString() {
