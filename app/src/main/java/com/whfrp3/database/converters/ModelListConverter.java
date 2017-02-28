@@ -12,7 +12,7 @@ public class ModelListConverter<T> implements PropertyConverter<List<T>, String>
     public List<T> convertToEntityProperty(String databaseValue) {
         Gson gson = new Gson();
 
-        return gson.fromJson(databaseValue, List.class);
+        return (List<T>) gson.fromJson(databaseValue, List.class);
     }
 
     @Override

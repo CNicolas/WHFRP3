@@ -19,11 +19,6 @@ public class PlayerActivity extends AppCompatActivity implements IPlayerActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
-//
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeButtonEnabled(true);
 
         playerPagerAdapter = new PlayerPagerAdapter(getSupportFragmentManager());
 

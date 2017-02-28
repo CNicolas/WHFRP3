@@ -10,6 +10,5 @@
         android:id="@+id/action_in_edition_false"
         android:icon="@drawable/ic_lock_outline_white"
         android:title="@string/btn_not_editing"
-        android:visible="false"
         app:showAsAction="ifRoom" />
 </menu>

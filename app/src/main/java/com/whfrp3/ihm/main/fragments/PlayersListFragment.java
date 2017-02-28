@@ -72,7 +72,7 @@ public class PlayersListFragment extends Fragment {
                 final Player player = playersAdapter.getPlayer(position);
                 WHFRP3.setPlayer(player);
 
-                Toast.makeText(getContext(), WHFRP3.getPlayer().toString(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), WHFRP3.getPlayer().toString(), Toast.LENGTH_LONG).show();
 
                 goToPlayerActivity();
             }
@@ -114,6 +114,7 @@ public class PlayersListFragment extends Fragment {
 
             Log.d("INSERT", WHFRP3.getPlayer().toString());
 
+            updatePlayers();
             goToPlayerActivity();
         } else {
             Toast.makeText(getContext(), R.string.empty_hand_name, Toast.LENGTH_SHORT).show();

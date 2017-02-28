@@ -1,5 +1,6 @@
 package com.whfrp3.database.entities;
 
+import com.whfrp3.database.converters.CharacteristicsMapConverter;
 import com.whfrp3.database.converters.InventoryConverter;
 import com.whfrp3.database.converters.ModelListConverter;
 import com.whfrp3.database.converters.MoneyConverter;
@@ -21,8 +22,9 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity(indexes = {
         @Index(value = "name", unique = true)
@@ -59,8 +61,8 @@ public class Player implements IEncumbrance {
     @Convert(converter = MoneyConverter.class, columnType = String.class)
     private Money money;
 
-    @Convert(converter = ModelListConverter.class, columnType = String.class)
-    private List<Characteristic> characteristics;
+    @Convert(converter = CharacteristicsMapConverter.class, columnType = String.class)
+    private Map<CharacteristicEnum, Characteristic> characteristics;
     @Convert(converter = InventoryConverter.class, columnType = String.class)
     private Inventory inventory;
     @Convert(converter = ModelListConverter.class, columnType = String.class)
@@ -71,13 +73,12 @@ public class Player implements IEncumbrance {
     private List<Talent> talents;
     //endregion
 
-    @Generated(hash = 329366301)
-    public Player(Long id, @NotNull String name, Race race, int age, int size,
-                  String description, String career, int rank, int experience, int maxExperience,
-                  int wounds, int maxWounds, int corruption, int maxCorruption, int reckless,
-                  int maxReckless, int conservative, int maxConservative, int stress, int exertion,
-                  Money money, List<Characteristic> characteristics, Inventory inventory,
-                  List<Skill> skills, List<Specialization> specializations, List<Talent> talents) {
+    @Generated(hash = 1088831586)
+    public Player(Long id, @NotNull String name, Race race, int age, int size, String description, String career,
+                  int rank, int experience, int maxExperience, int wounds, int maxWounds, int corruption,
+                  int maxCorruption, int reckless, int maxReckless, int conservative, int maxConservative, int stress,
+                  int exertion, Money money, Map<CharacteristicEnum, Characteristic> characteristics,
+                  Inventory inventory, List<Skill> skills, List<Specialization> specializations, List<Talent> talents) {
         this.id = id;
         this.name = name;
         this.race = race;
@@ -111,22 +112,17 @@ public class Player implements IEncumbrance {
     }
 
     public void initCharacteristics() {
-        List<Characteristic> characteristics = new ArrayList<>();
+        Map<CharacteristicEnum, Characteristic> characteristics = new HashMap<>();
 
         for (CharacteristicEnum characEnum : CharacteristicEnum.values()) {
-            characteristics.add(new Characteristic(characEnum, 0, 0));
+            characteristics.put(characEnum, new Characteristic(characEnum, 0, 0));
         }
 
         this.characteristics = characteristics;
     }
 
     public Characteristic getCharacteristic(CharacteristicEnum characteristicEnum) {
-        for (Characteristic characteristic : characteristics) {
-            if (characteristic.getCharacteristicEnum() == characteristicEnum) {
-                return characteristic;
-            }
-        }
-        return getCharacteristics().get(0);
+        return characteristics.get(characteristicEnum);
     }
 
     public int getEncumbranceOverload() {
@@ -347,11 +343,11 @@ public class Player implements IEncumbrance {
         this.money = money;
     }
 
-    public List<Characteristic> getCharacteristics() {
+    public Map<CharacteristicEnum, Characteristic> getCharacteristics() {
         return this.characteristics;
     }
 
-    public void setCharacteristics(List<Characteristic> characteristics) {
+    public void setCharacteristics(Map<CharacteristicEnum, Characteristic> characteristics) {
         this.characteristics = characteristics;
     }
 

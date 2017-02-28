@@ -43,6 +43,7 @@ public class CharacteristicsFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewHolder.initFields();
+        viewHolder.makeEditable(false);
     }
 
     private void setupViews(View rootView) {

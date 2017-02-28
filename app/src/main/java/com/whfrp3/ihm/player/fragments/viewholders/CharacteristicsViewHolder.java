@@ -1,6 +1,7 @@
 package com.whfrp3.ihm.player.fragments.viewholders;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -15,7 +16,8 @@ import butterknife.OnTextChanged;
 
 @SuppressWarnings("WeakerAccess")
 public class CharacteristicsViewHolder {
-    private final View rootView;
+    @BindView(R.id.characteristics_fragment_layout)
+    public ViewGroup parentLayout;
 
     @BindView(R.id.player_name)
     public EditText playerNameEditText;
@@ -71,7 +73,6 @@ public class CharacteristicsViewHolder {
     public EditText playerDescriptionEditText;
 
     public CharacteristicsViewHolder(View rootView) {
-        this.rootView = rootView;
         ButterKnife.bind(this, rootView);
     }
 
@@ -109,7 +110,19 @@ public class CharacteristicsViewHolder {
     }
 
     public void makeEditable(boolean inEdition) {
-        rootView.setEnabled(inEdition);
+        enableViews(parentLayout, inEdition);
+    }
+
+    private void enableViews(ViewGroup layout, boolean inEdition) {
+        layout.setEnabled(inEdition);
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            if (child instanceof ViewGroup) {
+                enableViews((ViewGroup) child, inEdition);
+            } else {
+                child.setEnabled(inEdition);
+            }
+        }
     }
 
     //region OnTextChanged
