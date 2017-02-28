@@ -13,6 +13,7 @@ public class PlayerViewHolder extends RecyclerView.ViewHolder {
 
     public PlayerViewHolder(View itemView, final PlayersListAdapter.PlayerClickListener clickListener) {
         super(itemView);
+
         name = (TextView) itemView.findViewById(R.id.player_name);
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

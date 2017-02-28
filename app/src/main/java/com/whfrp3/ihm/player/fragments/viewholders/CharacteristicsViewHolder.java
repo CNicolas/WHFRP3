@@ -141,7 +141,7 @@ public class CharacteristicsViewHolder {
         }
     }
 
-    //region OnTextChanged
+    //region Event handling
     @OnTextChanged(R.id.player_name)
     public void setPlayerName(CharSequence text) {
         WHFRP3.getPlayer().setName(text.toString());
@@ -347,12 +347,11 @@ public class CharacteristicsViewHolder {
     public void setPlayerDescription(CharSequence text) {
         WHFRP3.getPlayer().setDescription(text.toString());
     }
-    //endregion
 
     @OnItemSelected(R.id.player_race)
     public void setPlayerRace(Spinner spinner, int position) {
         String currentValue = spinner.getItemAtPosition(position).toString();
         WHFRP3.getPlayer().setRace(Race.valueOf(currentValue));
     }
-
+    //endregion
 }
