@@ -1,5 +1,6 @@
 package com.whfrp3.ihm.player.fragments.viewholders;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -9,9 +10,12 @@ import com.whfrp3.R;
 import com.whfrp3.WHFRP3;
 import com.whfrp3.database.entities.Player;
 import com.whfrp3.database.enums.CharacteristicEnum;
+import com.whfrp3.database.enums.Race;
+import com.whfrp3.ihm.player.adapters.EnumSpinnerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnItemSelected;
 import butterknife.OnTextChanged;
 
 @SuppressWarnings("WeakerAccess")
@@ -63,8 +67,6 @@ public class CharacteristicsViewHolder {
     public EditText playerMaxConservativeEditText;
     @BindView(R.id.player_max_reckless)
     public EditText playerMaxRecklessEditText;
-    @BindView(R.id.player_race)
-    public Spinner playerRaceSpinner;
     @BindView(R.id.player_age)
     public EditText playerAgeEditText;
     @BindView(R.id.player_size)
@@ -72,41 +74,53 @@ public class CharacteristicsViewHolder {
     @BindView(R.id.player_description)
     public EditText playerDescriptionEditText;
 
+    @BindView(R.id.player_race)
+    public Spinner playerRaceSpinner;
+
     public CharacteristicsViewHolder(View rootView) {
         ButterKnife.bind(this, rootView);
     }
 
-    public void initFields() {
+    public void initFields(LayoutInflater layoutInflater) {
         Player player = WHFRP3.getPlayer();
 
         playerNameEditText.setText(player.getName());
-        playerRankEditText.setText(String.valueOf(player.getRank()));
+        playerRankEditText.setText(getTextValueFromInt(player.getRank()));
         playerCareerEditText.setText(player.getCareer());
-        playerMaxWoundsEditText.setText(String.valueOf(player.getMaxWounds()));
-        playerExperienceEditText.setText(String.valueOf(player.getExperience()));
-        playerMaxExperienceEditText.setText(String.valueOf(player.getMaxExperience()));
-        playerMaxCorruptionEditText.setText(String.valueOf(player.getMaxCorruption()));
+        playerMaxWoundsEditText.setText(getTextValueFromInt(player.getMaxWounds()));
+        playerExperienceEditText.setText(getTextValueFromInt(player.getExperience()));
+        playerMaxExperienceEditText.setText(getTextValueFromInt(player.getMaxExperience()));
+        playerMaxCorruptionEditText.setText(getTextValueFromInt(player.getMaxCorruption()));
 
-        playerStrengthCharacteristicEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.STRENGTH).getValue()));
-        playerStrengthFortuneEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.STRENGTH).getFortuneValue()));
-        playerToughnessCharacteristicEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.TOUGHNESS).getValue()));
-        playerToughnessFortuneEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.TOUGHNESS).getFortuneValue()));
-        playerAgilityCharacteristicEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.AGILITY).getValue()));
-        playerAgilityFortuneEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.AGILITY).getFortuneValue()));
+        playerStrengthCharacteristicEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.STRENGTH).getValue()));
+        playerStrengthFortuneEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.STRENGTH).getFortuneValue()));
+        playerToughnessCharacteristicEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.TOUGHNESS).getValue()));
+        playerToughnessFortuneEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.TOUGHNESS).getFortuneValue()));
+        playerAgilityCharacteristicEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.AGILITY).getValue()));
+        playerAgilityFortuneEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.AGILITY).getFortuneValue()));
 
-        playerIntelligenceCharacteristicEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.INTELLIGENCE).getValue()));
-        playerIntelligenceFortuneEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.INTELLIGENCE).getFortuneValue()));
-        playerWillpowerCharacteristicEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.WILLPOWER).getValue()));
-        playerWillpowerFortuneEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.WILLPOWER).getFortuneValue()));
-        playerFellowshipCharacteristicEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.FELLOWSHIP).getValue()));
-        playerFellowshipFortuneEditText.setText(String.valueOf(player.getCharacteristic(CharacteristicEnum.FELLOWSHIP).getFortuneValue()));
+        playerIntelligenceCharacteristicEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.INTELLIGENCE).getValue()));
+        playerIntelligenceFortuneEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.INTELLIGENCE).getFortuneValue()));
+        playerWillpowerCharacteristicEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.WILLPOWER).getValue()));
+        playerWillpowerFortuneEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.WILLPOWER).getFortuneValue()));
+        playerFellowshipCharacteristicEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.FELLOWSHIP).getValue()));
+        playerFellowshipFortuneEditText.setText(getTextValueFromInt(player.getCharacteristic(CharacteristicEnum.FELLOWSHIP).getFortuneValue()));
 
-        playerMaxConservativeEditText.setText(String.valueOf(player.getMaxConservative()));
-        playerMaxRecklessEditText.setText(String.valueOf(player.getMaxReckless()));
-//        playerRaceSpinner.setText(player.getRace());
-        playerAgeEditText.setText(String.valueOf(player.getAge()));
-        playerSizeEditText.setText(String.valueOf(player.getSize()));
+        playerMaxConservativeEditText.setText(getTextValueFromInt(player.getMaxConservative()));
+        playerMaxRecklessEditText.setText(getTextValueFromInt(player.getMaxReckless()));
+        playerAgeEditText.setText(getTextValueFromInt(player.getAge()));
+        playerSizeEditText.setText(getTextValueFromInt(player.getSize()));
         playerDescriptionEditText.setText(player.getDescription());
+
+        EnumSpinnerAdapter adapter = new EnumSpinnerAdapter(layoutInflater, Race.values());
+        playerRaceSpinner.setAdapter(adapter);
+        if (player.getRace() != null) {
+            playerRaceSpinner.setSelection(player.getRace().ordinal());
+        }
+    }
+
+    private String getTextValueFromInt(int value) {
+        return value != 0 ? String.valueOf(value) : "";
     }
 
     public void makeEditable(boolean inEdition) {
@@ -333,13 +347,10 @@ public class CharacteristicsViewHolder {
     }
     //endregion
 
-    //    @OnTextChanged(R.id.player_race)
-//    public void setPlayerRace(CharSequence text) {
-//        WHFRP3.getPlayer().setRace(Race.valueOf(text.toString());
-//    }
-//    @OnItemSelected(R.id.player_race)
-//    public void spinnerItemSelected(Spinner spinner, int position) {
-//        WHFRP3.getPlayer().setRace(Race.valueOf(text.toString());
-//    }
+    @OnItemSelected(R.id.player_race)
+    public void spinnerItemSelected(Spinner spinner, int position) {
+        String currentValue = spinner.getItemAtPosition(position).toString();
+        WHFRP3.getPlayer().setRace(Race.valueOf(currentValue));
+    }
 
 }

@@ -42,7 +42,8 @@ public class CharacteristicsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewHolder.initFields();
+
+        viewHolder.initFields(getLayoutInflater(null));
         viewHolder.makeEditable(false);
     }
 
