@@ -23,6 +23,7 @@ public class CharacteristicsViewHolder {
     @BindView(R.id.characteristics_fragment_layout)
     public ViewGroup parentLayout;
 
+    //region Views
     @BindView(R.id.player_name)
     public EditText playerNameEditText;
     @BindView(R.id.player_rank)
@@ -76,6 +77,7 @@ public class CharacteristicsViewHolder {
 
     @BindView(R.id.player_race)
     public Spinner playerRaceSpinner;
+    //endregion
 
     public CharacteristicsViewHolder(View rootView) {
         ButterKnife.bind(this, rootView);
@@ -348,7 +350,7 @@ public class CharacteristicsViewHolder {
     //endregion
 
     @OnItemSelected(R.id.player_race)
-    public void spinnerItemSelected(Spinner spinner, int position) {
+    public void setPlayerRace(Spinner spinner, int position) {
         String currentValue = spinner.getItemAtPosition(position).toString();
         WHFRP3.getPlayer().setRace(Race.valueOf(currentValue));
     }
