@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <!--Wounds-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="90">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:gravity="end|center_vertical"
+            android:hint="@string/wounds"
+            android:labelFor="@+id/player_wounds"
+            android:text="@string/woundsLabelWithColon" />
+
+        <EditText
+            android:id="@+id/player_wounds"
+            style="@style/SimpleCharacteristicNumberEditText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/slash" />
+
+        <TextView
+            android:id="@+id/adventure_max_wounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/small_padding"
+            android:hint="@string/zero" />
+    </LinearLayout>
+
+    <!--Stress/Exertion Labels-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/big_padding"
+        android:layout_marginStart="@dimen/big_padding"
+        android:paddingEnd="@dimen/big_padding"
+        android:paddingStart="@dimen/big_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/big_padding"
+            android:paddingEnd="@dimen/big_padding"
+            android:paddingStart="@dimen/big_padding"
+            android:text="@string/stress" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/medium_padding"
+            android:paddingEnd="@dimen/big_padding"
+            android:paddingStart="@dimen/big_padding"
+            android:text="@string/exertion" />
+
+    </RelativeLayout>
+
+    <!--Stress/Exertion-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/big_padding"
+        android:layout_marginStart="@dimen/big_padding">
+
+        <!--Stress-->
+        <Button
+            android:id="@+id/btn_minus_stress"
+            style="@style/ButtonPlusMinus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/minus" />
+
+        <TextView
+            android:id="@+id/player_stress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@+id/btn_minus_stress"
+            android:hint="@string/zero"
+            android:minWidth="50dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_plus_stress"
+            style="@style/ButtonPlusMinus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/player_stress"
+            android:text="@string/plus" />
+
+        <!--Exertion-->
+        <Button
+            android:id="@+id/btn_plus_tiredness"
+            style="@style/ButtonPlusMinus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/plus" />
+
+        <TextView
+            android:id="@+id/player_tiredness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@id/btn_plus_tiredness"
+            android:hint="@string/zero"
+            android:minWidth="50dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_minus_exertion"
+            style="@style/ButtonPlusMinus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/player_tiredness"
+            android:text="@string/minus" />
+    </RelativeLayout>
+
+    <!--Stance-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/medium_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_padding"
+                android:layout_marginStart="@dimen/medium_padding"
+                android:layout_weight="50"
+                android:gravity="end|center_vertical"
+                android:text="@string/stanceLabelWithColon" />
+
+            <TextView
+                android:id="@+id/current_stance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_padding"
+                android:layout_marginStart="@dimen/medium_padding"
+                android:layout_weight="50"
+                android:gravity="start|center_vertical"
+                android:text="@string/neutral"
+                android:textColor="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+        <com.whfrp3.ihm.components.BindableDiscreteSeekBar
+            android:id="@+id/player_stance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_padding"
+            app:dsb_indicatorPopupEnabled="false"
+            app:dsb_max="5"
+            app:dsb_min="-5"
+            app:dsb_progressColor="@color/colorPrimaryDark"
+            app:dsb_scrubberHeight="10dp"
+            app:dsb_thumbSize="30dp"
+            app:dsb_value="0" />
+
+    </LinearLayout>
+
+    <!--Defense/Soak-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="@dimen/medium_padding">
+
+        <TextView
+            android:id="@+id/player_full_defense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/big_padding"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_shield_black_36"
+            android:gravity="center"
+            android:hint="@string/zero" />
+
+        <TextView
+            android:id="@+id/player_full_soak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_padding"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/ic_armor_black_36"
+            android:gravity="center"
+            android:hint="@string/zero" />
+    </LinearLayout>
+
+    <!--Equipped Weapons-->
+    <ListView
+        android:id="@+id/equipped_weapons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/big_padding"
+        android:layout_marginTop="@dimen/big_padding"
+        tools:listitem="@layout/element_list_weapon" />
+
+    <!--Encumbrance-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/big_padding"
+        android:layout_marginStart="@dimen/big_padding"
+        android:layout_marginTop="@dimen/medium_padding"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:contentDescription="@string/encumbrance"
+            android:paddingEnd="@dimen/very_small_padding"
+            android:paddingStart="@dimen/very_small_padding"
+            android:src="@drawable/ic_weight_black_36" />
+
+        <com.whfrp3.ihm.components.BindableDiscreteSeekBar
+            android:id="@+id/encumbrance_bar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/black_border"
+            android:minHeight="10dp"
+            app:dsb_allowTrackClickToDrag="false"
+            app:dsb_indicatorPopupEnabled="false"
+            app:dsb_max="50"
+            app:dsb_min="0"
+            app:dsb_progressColor="@color/conservative"
+            app:dsb_scrubberHeight="10dp"
+            app:dsb_thumbSize="0dp"
+            app:dsb_trackColor="@color/spinner_background"
+            app:dsb_trackHeight="10dp"
+            app:dsb_value="10" />
+
+        <TextView
+            android:id="@+id/encumbrance_text"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="@string/dummy_string"
+            android:paddingEnd="@dimen/very_small_padding"
+            android:paddingStart="@dimen/very_small_padding" />
+    </LinearLayout>
+
+    <!--Money-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/big_padding"
+        android:layout_marginStart="@dimen/big_padding"
+        android:layout_marginTop="@dimen/medium_padding"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_add_money"
+            style="@style/ButtonPlusMinus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/plus" />
+
+        <TextView
+            android:id="@+id/money_gold"
+            style="@style/AdventureEditNumberFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/coins_gold" />
+
+        <TextView
+            android:id="@+id/money_silver"
+            style="@style/AdventureEditNumberFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/coins_silver" />
+
+        <TextView
+            android:id="@+id/money_brass"
+            style="@style/AdventureEditNumberFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableEnd="@drawable/coins_brass" />
+
+        <Button
+            android:id="@+id/btn_remove_money"
+            style="@style/ButtonPlusMinus"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="@string/minus" />
+    </LinearLayout>
+</LinearLayout>

@@ -195,5 +195,7 @@
     <string name="recklessLabelWithColon">Reckless :</string>
     <string name="conservativeLabelWithColon">Conservative :</string>
     <string name="xpLabelWithColon">XP :</string>
+    <string name="woundsLabelWithColon">Wounds :</string>
+    <string name="stanceLabelWithColon">Stance :</string>
 
 </resources>

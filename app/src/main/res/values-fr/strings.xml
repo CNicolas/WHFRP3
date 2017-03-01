@@ -171,6 +171,8 @@
     <string name="xpLabelWithColon">XP :</string>
     <string name="conservativeLabelWithColon">Prudence :</string>
     <string name="recklessLabelWithColon">Témérité :</string>
+    <string name="woundsLabelWithColon">Blessures :</string>
+    <string name="stanceLabelWithColon">Attitude :</string>
     <!-- End of inventory -->
 
 </resources>

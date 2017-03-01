@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weapon_list_element_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/small_padding"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:gravity="center"
+    android:minHeight="35dp"
+    android:padding="@dimen/small_padding"
+    android:weightSum="7">
+
+    <TextView
+        style="@style/WeaponName"
+        android:hint="@string/dummy_string"
+        android:id="@+id/weapon_name" />
+
+    <TextView
+        style="@style/WeaponTextView"
+        android:drawableStart="@drawable/ic_damage_black_16"
+        android:id="@+id/weapon_damage" />
+
+    <TextView
+        style="@style/WeaponTextView"
+        android:drawableStart="@drawable/ic_boon_black_16"
+        android:id="@+id/weapon_critical" />
+
+    <TextView
+        style="@style/WeaponRange"
+        android:layout_weight="2"
+        android:drawableStart="@drawable/ic_target_black_16"
+        android:hint="@string/range_engaged"
+        android:id="@+id/weapon_range" />
+</LinearLayout>
