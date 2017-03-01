@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/spinner_background"
-            android:textAllCaps="false"
-            app:tabTextAppearance="@style/TextAppearance.Design.Tab" />
+            app:tabTextAppearance="@style/PlayerTabTextAppearance" />
 
     </android.support.design.widget.AppBarLayout>
 

@@ -115,8 +115,10 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
      */
     private CharSequence setTabIcon(Drawable image) {
         image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
-        SpannableString sb = new SpannableString(" ");
+
         ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+
+        SpannableString sb = new SpannableString(" ");
         sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return sb;
     }
