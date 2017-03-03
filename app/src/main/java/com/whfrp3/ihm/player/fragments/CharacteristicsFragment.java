@@ -19,6 +19,7 @@ import com.whfrp3.ihm.player.fragments.viewholders.CharacteristicsFragmentViewHo
 public class CharacteristicsFragment extends Fragment {
     private CharacteristicsFragmentViewHolder viewHolder;
     private Menu menu;
+
     private PlayerService playerService;
 
     public CharacteristicsFragment() {

@@ -21,7 +21,9 @@ import com.whfrp3.ihm.player.constants.IPlayerNotificationConstants;
 import com.whfrp3.ihm.player.fragments.viewholders.AdventureFragmentViewHolder;
 
 public class AdventureFragment extends Fragment {
+
     private PlayerService playerService;
+
     private AdventureFragmentViewHolder viewHolder;
 
     public AdventureFragment() {
@@ -33,9 +35,9 @@ public class AdventureFragment extends Fragment {
 
         viewHolder = new AdventureFragmentViewHolder(rootView);
 
-        playerService = new PlayerService();
-
         setupBroadcastReceiver();
+
+        playerService = new PlayerService();
 
         getActivity().setTitle(getString(R.string.page_adventure));
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

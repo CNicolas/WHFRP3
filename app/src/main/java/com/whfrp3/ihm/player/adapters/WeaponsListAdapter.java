@@ -40,9 +40,9 @@ public class WeaponsListAdapter extends RecyclerView.Adapter<WeaponViewHolder> {
     public void onBindViewHolder(WeaponViewHolder holder, int position) {
         Weapon weapon = dataset.get(position);
 
-        holder.weaponName.setText(weapon.getName());
-        holder.weaponDamage.setText(getTextValueFromInt(weapon.getDamage()));
-        holder.weaponCritical.setText(getTextValueFromInt(weapon.getCriticalLevel()));
+        holder.name.setText(weapon.getName());
+        holder.damage.setText(getTextValueFromInt(weapon.getDamage()));
+        holder.critical.setText(getTextValueFromInt(weapon.getCriticalLevel()));
     }
 
     @Override

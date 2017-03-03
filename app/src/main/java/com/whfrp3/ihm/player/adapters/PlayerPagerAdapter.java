@@ -13,6 +13,7 @@ import com.whfrp3.WHFRP3;
 import com.whfrp3.ihm.player.constants.IPlayerActivityConstants;
 import com.whfrp3.ihm.player.fragments.AdventureFragment;
 import com.whfrp3.ihm.player.fragments.CharacteristicsFragment;
+import com.whfrp3.ihm.player.fragments.SkillsFragment;
 
 /**
  * The PlayerPagerAdapter creates and manages the Fragments from the PlayerActivity.
@@ -23,7 +24,7 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
 
     private CharacteristicsFragment characteristicsFragment;
     private AdventureFragment adventureFragment;
-//    private PlayerSkillsFragment mPlayerSkillsFragment;
+    private SkillsFragment skillsFragment;
 //    private InventoryFragment mInventoryFragment;
 //    private PlayerActionsFragment mPlayerActionsFragment;
 //    private PlayerTalentsFragment mPlayerTalentsFragment;
@@ -48,11 +49,11 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
                     adventureFragment = new AdventureFragment();
                 }
                 return adventureFragment;
-//            case IPlayerActivityConstants.PLAYER_SKILLS_FRAGMENT_POSITION:
-//                if (mPlayerSkillsFragment == null) {
-//                    mPlayerSkillsFragment = new PlayerSkillsFragment();
-//                }
-//                return mPlayerSkillsFragment;
+            case IPlayerActivityConstants.SKILLS_FRAGMENT_POSITION:
+                if (skillsFragment == null) {
+                    skillsFragment = new SkillsFragment();
+                }
+                return skillsFragment;
 //            case IPlayerActivityConstants.INVENTORY_FRAGMENT_POSITION:
 //                if (mInventoryFragment == null) {
 //                    mInventoryFragment = new InventoryFragment();
@@ -75,7 +76,7 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
 
@@ -88,12 +89,9 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
             case IPlayerActivityConstants.ADVENTURE_FRAGMENT_POSITION:
                 image = WHFRP3.getResourceDrawable(R.drawable.ic_explore_black);
                 return setTabIcon(image);
-//            case IPlayerActivityConstants.ADVENTURE_FRAGMENT_POSITION:
-//                image = WHFRP3Application.getResourceDrawable(R.drawable.ic_explore_black);
-//                return setTabIcon(image);
-//            case IPlayerActivityConstants.PLAYER_SKILLS_FRAGMENT_POSITION:
-//                image = WHFRP3Application.getResourceDrawable(R.drawable.ic_skills_black);
-//                return setTabIcon(image);
+            case IPlayerActivityConstants.SKILLS_FRAGMENT_POSITION:
+                image = WHFRP3.getResourceDrawable(R.drawable.ic_skills_black);
+                return setTabIcon(image);
 //            case IPlayerActivityConstants.INVENTORY_FRAGMENT_POSITION:
 //                image = ContextCompat.getDrawable(context, R.drawable.ic_bag_black);
 //                return setTabIcon(image);

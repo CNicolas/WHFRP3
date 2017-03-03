@@ -7,6 +7,7 @@ import com.whfrp3.database.converters.InventoryConverter;
 import com.whfrp3.database.converters.ModelListConverter;
 import com.whfrp3.database.converters.MoneyConverter;
 import com.whfrp3.database.converters.RaceConverter;
+import com.whfrp3.database.converters.SkillsListConverter;
 import com.whfrp3.database.entities.model.Characteristic;
 import com.whfrp3.database.entities.model.Money;
 import com.whfrp3.database.entities.model.Talent;
@@ -16,6 +17,8 @@ import com.whfrp3.database.entities.model.skills.Skill;
 import com.whfrp3.database.entities.model.skills.Specialization;
 import com.whfrp3.database.enums.CharacteristicEnum;
 import com.whfrp3.database.enums.Race;
+import com.whfrp3.database.enums.SkillType;
+import com.whfrp3.helpers.SkillHelper;
 
 import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
@@ -67,7 +70,7 @@ public class Player implements IEncumbrance {
     private Map<CharacteristicEnum, Characteristic> characteristics;
     @Convert(converter = InventoryConverter.class, columnType = String.class)
     private Inventory inventory;
-    @Convert(converter = ModelListConverter.class, columnType = String.class)
+    @Convert(converter = SkillsListConverter.class, columnType = String.class)
     private List<Skill> skills;
     @Convert(converter = ModelListConverter.class, columnType = String.class)
     private List<Specialization> specializations;
@@ -125,6 +128,10 @@ public class Player implements IEncumbrance {
 
     public Characteristic getCharacteristic(CharacteristicEnum characteristicEnum) {
         return characteristics.get(characteristicEnum);
+    }
+
+    public void initSkills() {
+        this.skills = SkillHelper.getInstance().getSkillsByType(SkillType.BASIC);
     }
 
     //region Encumbrance

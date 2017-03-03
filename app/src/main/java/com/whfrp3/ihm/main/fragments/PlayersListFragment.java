@@ -18,8 +18,6 @@ import android.widget.Toast;
 import com.whfrp3.R;
 import com.whfrp3.WHFRP3;
 import com.whfrp3.database.entities.Player;
-import com.whfrp3.database.entities.model.Money;
-import com.whfrp3.database.entities.model.inventory.Inventory;
 import com.whfrp3.database.services.PlayerService;
 import com.whfrp3.ihm.main.adapters.PlayersListAdapter;
 import com.whfrp3.ihm.main.constants.IMainConstants;
@@ -33,7 +31,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class PlayersListFragment extends Fragment {
-
     private PlayerService playerService;
 
     private PlayersListAdapter playersAdapter;
@@ -43,6 +40,9 @@ public class PlayersListFragment extends Fragment {
 
     @BindView(R.id.list_players)
     public RecyclerView playersList;
+
+    public PlayersListFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -73,6 +73,8 @@ public class PlayersListFragment extends Fragment {
             public void onPlayerClick(int position) {
                 final Player player = playersAdapter.getPlayer(position);
                 WHFRP3.setPlayer(player);
+
+                Log.e("PLAYER", player.toString());
 
                 goToPlayerActivity();
             }
@@ -105,11 +107,8 @@ public class PlayersListFragment extends Fragment {
 
             newPlayerNameEditText.setText("");
 
-            Player player = new Player();
+            Player player = playerService.initEmptyPlayer();
             player.setName(playerName);
-            player.setInventory(new Inventory());
-            player.setMoney(new Money(0, 0, 0));
-            player.initCharacteristics();
 
             long id = playerService.insertPlayer(player);
             WHFRP3.setPlayer(playerService.getPlayerById(id));

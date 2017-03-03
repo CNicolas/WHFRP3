@@ -86,6 +86,7 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
         ButterKnife.bind(this, rootView);
     }
 
+    @Override
     public void initFields(LayoutInflater layoutInflater) {
         Player player = WHFRP3.getPlayer();
 

@@ -14,6 +14,7 @@ import com.whfrp3.ihm.player.constants.IPlayerActivityConstants;
 
 public class PlayerActivity extends AppCompatActivity implements IPlayerActivityConstants {
     private PlayerService playerService;
+
     private PlayerPagerAdapter playerPagerAdapter;
 
     @Override

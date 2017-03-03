@@ -82,6 +82,7 @@ public class AdventureFragmentViewHolder extends BaseFragmentViewHolder {
         ButterKnife.bind(this, rootView);
     }
 
+    @Override
     public void initFields(LayoutInflater layoutInflater) {
         this.layoutInflater = layoutInflater;
 

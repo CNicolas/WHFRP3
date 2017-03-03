@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:minHeight="40dp"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <TextView
+        android:id="@+id/skill_name"
+        style="@style/SkillName"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true" />
+
+    <CheckBox
+        android:id="@+id/skill_level1"
+        style="@style/SkillCheckbox" />
+
+    <CheckBox
+        android:id="@+id/skill_level2"
+        style="@style/SkillCheckbox" />
+
+    <CheckBox
+        android:id="@+id/skill_level3"
+        style="@style/SkillCheckbox" />
+
+    <TextView
+        android:id="@+id/skill_specialization"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/s"
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
+</LinearLayout>

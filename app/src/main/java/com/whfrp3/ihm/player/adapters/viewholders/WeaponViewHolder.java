@@ -6,23 +6,17 @@ import android.widget.TextView;
 
 import com.whfrp3.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class WeaponViewHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.weapon_name)
-    public TextView weaponName;
-
-    @BindView(R.id.weapon_damage)
-    public TextView weaponDamage;
-
-    @BindView(R.id.weapon_critical)
-    public TextView weaponCritical;
+    public TextView name;
+    public TextView damage;
+    public TextView critical;
 
     public WeaponViewHolder(View itemView) {
         super(itemView);
 
-        ButterKnife.bind(itemView);
+        name = (TextView) itemView.findViewById(R.id.weapon_name);
+        damage = (TextView) itemView.findViewById(R.id.weapon_damage);
+        critical = (TextView) itemView.findViewById(R.id.weapon_critical);
     }
 }

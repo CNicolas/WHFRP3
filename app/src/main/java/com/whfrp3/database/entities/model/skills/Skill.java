@@ -33,6 +33,14 @@ public class Skill implements Serializable {
 
     private boolean specialized;
 
+
+    public Skill(Long id, String name, CharacteristicEnum characteristic, SkillType type) {
+        this.id = id;
+        this.name = name;
+        this.characteristic = characteristic;
+        this.type = type;
+    }
+
     public boolean isFightSkill() {
         return isWeaponSkill() || isBallisticSkill();
     }
