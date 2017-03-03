@@ -12,24 +12,24 @@
     android:weightSum="7">
 
     <TextView
+        android:id="@+id/weapon_name"
         style="@style/WeaponName"
-        android:hint="@string/dummy_string"
-        android:id="@+id/weapon_name" />
+        android:hint="@string/dummy_string" />
 
     <TextView
+        android:id="@+id/weapon_damage"
         style="@style/WeaponTextView"
-        android:drawableStart="@drawable/ic_damage_black_16"
-        android:id="@+id/weapon_damage" />
+        android:drawableStart="@drawable/ic_damage_black_16" />
 
     <TextView
+        android:id="@+id/weapon_critical"
         style="@style/WeaponTextView"
-        android:drawableStart="@drawable/ic_boon_black_16"
-        android:id="@+id/weapon_critical" />
+        android:drawableStart="@drawable/ic_boon_black_16" />
 
     <TextView
+        android:id="@+id/weapon_range"
         style="@style/WeaponRange"
         android:layout_weight="2"
         android:drawableStart="@drawable/ic_target_black_16"
-        android:hint="@string/range_engaged"
-        android:id="@+id/weapon_range" />
+        android:hint="@string/range_engaged" />
 </LinearLayout>

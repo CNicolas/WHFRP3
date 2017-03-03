@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/big_padding"
+    android:layout_marginStart="@dimen/big_padding"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/big_padding"
+    android:paddingStart="@dimen/big_padding"
+    android:weightSum="6">
+
+    <EditText
+        android:id="@+id/dialog_money_gold"
+        style="@style/DialogMoneyEditText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:drawableEnd="@drawable/coins_gold" />
+
+    <EditText
+        android:id="@+id/dialog_money_silver"
+        style="@style/DialogMoneyEditText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:drawableEnd="@drawable/coins_silver" />
+
+    <EditText
+        android:id="@+id/dialog_money_brass"
+        style="@style/DialogMoneyEditText"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:drawableEnd="@drawable/coins_brass" />
+
+</LinearLayout>
+

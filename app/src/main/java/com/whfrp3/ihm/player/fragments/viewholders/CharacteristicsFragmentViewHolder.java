@@ -19,7 +19,7 @@ import butterknife.OnItemSelected;
 import butterknife.OnTextChanged;
 
 @SuppressWarnings("WeakerAccess")
-public class CharacteristicsViewHolder {
+public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
     @BindView(R.id.characteristics_fragment_layout)
     public ViewGroup parentLayout;
 
@@ -79,7 +79,7 @@ public class CharacteristicsViewHolder {
     public Spinner playerRaceSpinner;
     //endregion
 
-    public CharacteristicsViewHolder(View rootView) {
+    public CharacteristicsFragmentViewHolder(View rootView) {
         ButterKnife.bind(this, rootView);
     }
 
@@ -119,10 +119,6 @@ public class CharacteristicsViewHolder {
         if (player.getRace() != null) {
             playerRaceSpinner.setSelection(player.getRace().ordinal());
         }
-    }
-
-    private String getTextValueFromInt(int value) {
-        return value != 0 ? String.valueOf(value) : "";
     }
 
     public void makeEditable(boolean inEdition) {

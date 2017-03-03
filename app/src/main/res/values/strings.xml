@@ -136,7 +136,7 @@
     <string name="plus"
         translatable="false">+</string>
     <string name="stress">Stress</string>
-    <string name="exertion">Exertion</string>
+    <string name="tiredness">Tiredness</string>
     <string name="talent_faith">Faith</string>
     <string name="talent_tactics">Tactics</string>
     <string name="talent_reputation">Reputation</string>
@@ -197,5 +197,6 @@
     <string name="xpLabelWithColon">XP :</string>
     <string name="woundsLabelWithColon">Wounds :</string>
     <string name="stanceLabelWithColon">Stance :</string>
+    <string name="negative_money">Not enough money !</string>
 
 </resources>

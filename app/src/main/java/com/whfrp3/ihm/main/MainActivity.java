@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.whfrp3.R;
+import com.whfrp3.WHFRP3;
 import com.whfrp3.ihm.main.constants.IMainConstants;
 import com.whfrp3.ihm.main.fragments.PlayersListFragment;
 
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         displaySelectedFragment(R.id.nav_home);
+
+        WHFRP3.setActivity(this);
     }
 
     //region Menu

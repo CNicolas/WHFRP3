@@ -1,5 +1,6 @@
 package com.whfrp3;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -14,6 +15,7 @@ import org.greenrobot.greendao.database.Database;
 
 public class WHFRP3 extends Application {
     private static Context context;
+    private static Activity activity;
 
     private static DaoSession daoSession;
     private static Player player;
@@ -42,6 +44,21 @@ public class WHFRP3 extends Application {
         Log.d("Player Context SET", WHFRP3.player.toString());
     }
 
+/*
+    public static Context getContext() {
+        return context;
+    }
+*/
+
+    public static Activity getActivity() {
+        return activity;
+    }
+
+    public static void setActivity(Activity activity) {
+        WHFRP3.activity = activity;
+    }
+
+    //region Resources
     public static String getResourceString(int resId) {
         return context.getString(resId);
     }
@@ -49,4 +66,9 @@ public class WHFRP3 extends Application {
     public static Drawable getResourceDrawable(int resId) {
         return ContextCompat.getDrawable(context, resId);
     }
+
+    public static int getResourceColor(int colorId) {
+        return ContextCompat.getColor(context, colorId);
+    }
+    //endregion
 }

@@ -14,10 +14,10 @@ import android.view.WindowManager;
 
 import com.whfrp3.R;
 import com.whfrp3.database.services.PlayerService;
-import com.whfrp3.ihm.player.fragments.viewholders.CharacteristicsViewHolder;
+import com.whfrp3.ihm.player.fragments.viewholders.CharacteristicsFragmentViewHolder;
 
 public class CharacteristicsFragment extends Fragment {
-    private CharacteristicsViewHolder viewHolder;
+    private CharacteristicsFragmentViewHolder viewHolder;
     private Menu menu;
     private PlayerService playerService;
 
@@ -43,12 +43,12 @@ public class CharacteristicsFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewHolder.initFields(getLayoutInflater(null));
+        viewHolder.initFields(getLayoutInflater(savedInstanceState));
         viewHolder.makeEditable(false);
     }
 
     private void setupViews(View rootView) {
-        viewHolder = new CharacteristicsViewHolder(rootView);
+        viewHolder = new CharacteristicsFragmentViewHolder(rootView);
 
         setHasOptionsMenu(true);
     }

@@ -1,6 +1,8 @@
 package com.whfrp3.database.entities.model;
 
 
+import com.whfrp3.R;
+import com.whfrp3.WHFRP3;
 import com.whfrp3.database.enums.MoneyType;
 
 import java.util.HashMap;
@@ -44,8 +46,20 @@ public class Money {
      * @param type Money type.
      * @return Amount of the given money type.
      */
-    public int getAmount(MoneyType type) {
+    private int getAmount(MoneyType type) {
         return amounts.get(type);
+    }
+
+    public int getGold() {
+        return amounts.get(MoneyType.GOLD);
+    }
+
+    public int getSilver() {
+        return amounts.get(MoneyType.SILVER);
+    }
+
+    public int getBrass() {
+        return amounts.get(MoneyType.BRASS);
     }
 
     /**
@@ -76,7 +90,7 @@ public class Money {
      * @param amount Amount of money to remove.
      * @param type   Type of money to remove.
      */
-    public void removeMoney(int amount, MoneyType type) {
+    public void removeMoney(int amount, MoneyType type) throws IllegalArgumentException {
         if (amount < 1) {
             return;
         }
@@ -92,7 +106,7 @@ public class Money {
         }
 
         if (newAmount < 0) {
-            throw new IllegalArgumentException("Not enough money !");
+            throw new IllegalArgumentException(WHFRP3.getResourceString(R.string.negative_money));
         }
 
         amounts.put(type, newAmount);

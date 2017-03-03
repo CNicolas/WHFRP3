@@ -30,6 +30,8 @@ public class PlayerActivity extends AppCompatActivity implements IPlayerActivity
         tabLayout.setupWithViewPager(viewPager);
 
         playerService = new PlayerService();
+
+        WHFRP3.setActivity(this);
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.text.style.ImageSpan;
 import com.whfrp3.R;
 import com.whfrp3.WHFRP3;
 import com.whfrp3.ihm.player.constants.IPlayerActivityConstants;
+import com.whfrp3.ihm.player.fragments.AdventureFragment;
 import com.whfrp3.ihm.player.fragments.CharacteristicsFragment;
 
 /**
@@ -20,8 +21,8 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
 
     private int mCurrentPosition;
 
-    private CharacteristicsFragment mCharacteristicsFragment;
-//    private AdventureFragment mAdventureFragment;
+    private CharacteristicsFragment characteristicsFragment;
+    private AdventureFragment adventureFragment;
 //    private PlayerSkillsFragment mPlayerSkillsFragment;
 //    private InventoryFragment mInventoryFragment;
 //    private PlayerActionsFragment mPlayerActionsFragment;
@@ -37,17 +38,16 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case IPlayerActivityConstants.CHARACTERISTICS_FRAGMENT_POSITION:
-                if (mCharacteristicsFragment == null) {
-                    mCharacteristicsFragment = new CharacteristicsFragment();
+                if (characteristicsFragment == null) {
+                    characteristicsFragment = new CharacteristicsFragment();
                 }
-                return mCharacteristicsFragment;
+                return characteristicsFragment;
+
             case IPlayerActivityConstants.ADVENTURE_FRAGMENT_POSITION:
-                return new CharacteristicsFragment();
-//            case IPlayerActivityConstants.ADVENTURE_FRAGMENT_POSITION:
-//                if (mAdventureFragment == null) {
-//                    mAdventureFragment = new AdventureFragment();
-//                }
-//                return mAdventureFragment;
+                if (adventureFragment == null) {
+                    adventureFragment = new AdventureFragment();
+                }
+                return adventureFragment;
 //            case IPlayerActivityConstants.PLAYER_SKILLS_FRAGMENT_POSITION:
 //                if (mPlayerSkillsFragment == null) {
 //                    mPlayerSkillsFragment = new PlayerSkillsFragment();
@@ -86,7 +86,7 @@ public class PlayerPagerAdapter extends FragmentPagerAdapter {
                 Drawable image = WHFRP3.getResourceDrawable(R.drawable.ic_person_black);
                 return setTabIcon(image);
             case IPlayerActivityConstants.ADVENTURE_FRAGMENT_POSITION:
-                image = WHFRP3.getResourceDrawable(R.drawable.ic_work_black);
+                image = WHFRP3.getResourceDrawable(R.drawable.ic_explore_black);
                 return setTabIcon(image);
 //            case IPlayerActivityConstants.ADVENTURE_FRAGMENT_POSITION:
 //                image = WHFRP3Application.getResourceDrawable(R.drawable.ic_explore_black);

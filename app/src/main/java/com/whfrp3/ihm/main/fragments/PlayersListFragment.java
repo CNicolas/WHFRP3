@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.whfrp3.R;
 import com.whfrp3.WHFRP3;
 import com.whfrp3.database.entities.Player;
+import com.whfrp3.database.entities.model.Money;
+import com.whfrp3.database.entities.model.inventory.Inventory;
 import com.whfrp3.database.services.PlayerService;
 import com.whfrp3.ihm.main.adapters.PlayersListAdapter;
 import com.whfrp3.ihm.main.constants.IMainConstants;
@@ -72,8 +74,6 @@ public class PlayersListFragment extends Fragment {
                 final Player player = playersAdapter.getPlayer(position);
                 WHFRP3.setPlayer(player);
 
-//                Toast.makeText(getContext(), WHFRP3.getPlayer().toString(), Toast.LENGTH_LONG).show();
-
                 goToPlayerActivity();
             }
         };
@@ -107,6 +107,8 @@ public class PlayersListFragment extends Fragment {
 
             Player player = new Player();
             player.setName(playerName);
+            player.setInventory(new Inventory());
+            player.setMoney(new Money(0, 0, 0));
             player.initCharacteristics();
 
             long id = playerService.insertPlayer(player);

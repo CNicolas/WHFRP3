@@ -33,7 +33,7 @@
             android:text="@string/slash" />
 
         <TextView
-            android:id="@+id/adventure_max_wounds"
+            android:id="@+id/player_max_wounds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -66,7 +66,7 @@
             android:layout_marginEnd="@dimen/medium_padding"
             android:paddingEnd="@dimen/big_padding"
             android:paddingStart="@dimen/big_padding"
-            android:text="@string/exertion" />
+            android:text="@string/tiredness" />
 
     </RelativeLayout>
 
@@ -103,7 +103,7 @@
             android:layout_toEndOf="@+id/player_stress"
             android:text="@string/plus" />
 
-        <!--Exertion-->
+        <!--Tiredness-->
         <Button
             android:id="@+id/btn_plus_tiredness"
             style="@style/ButtonPlusMinus"
@@ -123,7 +123,7 @@
             android:textAlignment="center" />
 
         <Button
-            android:id="@+id/btn_minus_exertion"
+            android:id="@+id/btn_minus_tiredness"
             style="@style/ButtonPlusMinus"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                 android:text="@string/stanceLabelWithColon" />
 
             <TextView
-                android:id="@+id/current_stance"
+                android:id="@+id/player_current_stance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/medium_padding"
@@ -164,7 +164,7 @@
         </LinearLayout>
 
         <com.whfrp3.ihm.components.BindableDiscreteSeekBar
-            android:id="@+id/player_stance"
+            android:id="@+id/player_stance_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_padding"
@@ -208,7 +208,7 @@
     </LinearLayout>
 
     <!--Equipped Weapons-->
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/equipped_weapons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
             android:src="@drawable/ic_weight_black_36" />
 
         <com.whfrp3.ihm.components.BindableDiscreteSeekBar
-            android:id="@+id/encumbrance_bar"
+            android:id="@+id/player_encumbrance_bar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -272,11 +272,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_add_money"
+            android:id="@+id/btn_remove_money"
             style="@style/ButtonPlusMinus"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="@string/plus" />
+            android:text="@string/minus" />
+
 
         <TextView
             android:id="@+id/money_gold"
@@ -300,10 +301,10 @@
             android:drawableEnd="@drawable/coins_brass" />
 
         <Button
-            android:id="@+id/btn_remove_money"
+            android:id="@+id/btn_add_money"
             style="@style/ButtonPlusMinus"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="@string/minus" />
+            android:text="@string/plus" />
     </LinearLayout>
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.whfrp3.database.entities;
 
+import com.whfrp3.R;
+import com.whfrp3.WHFRP3;
 import com.whfrp3.database.converters.CharacteristicsMapConverter;
 import com.whfrp3.database.converters.InventoryConverter;
 import com.whfrp3.database.converters.ModelListConverter;
@@ -57,7 +59,7 @@ public class Player implements IEncumbrance {
     private int conservative;
     private int maxConservative;
     private int stress;
-    private int exertion;
+    private int tiredness;
     @Convert(converter = MoneyConverter.class, columnType = String.class)
     private Money money;
 
@@ -73,12 +75,12 @@ public class Player implements IEncumbrance {
     private List<Talent> talents;
     //endregion
 
-    @Generated(hash = 1088831586)
-    public Player(Long id, @NotNull String name, Race race, int age, int size, String description, String career,
-                  int rank, int experience, int maxExperience, int wounds, int maxWounds, int corruption,
-                  int maxCorruption, int reckless, int maxReckless, int conservative, int maxConservative, int stress,
-                  int exertion, Money money, Map<CharacteristicEnum, Characteristic> characteristics,
-                  Inventory inventory, List<Skill> skills, List<Specialization> specializations, List<Talent> talents) {
+    @Generated(hash = 823712239)
+    public Player(Long id, @NotNull String name, Race race, int age, int size, String description, String career, int rank,
+                  int experience, int maxExperience, int wounds, int maxWounds, int corruption, int maxCorruption, int reckless,
+                  int maxReckless, int conservative, int maxConservative, int stress, int tiredness, Money money,
+                  Map<CharacteristicEnum, Characteristic> characteristics, Inventory inventory, List<Skill> skills,
+                  List<Specialization> specializations, List<Talent> talents) {
         this.id = id;
         this.name = name;
         this.race = race;
@@ -98,7 +100,7 @@ public class Player implements IEncumbrance {
         this.conservative = conservative;
         this.maxConservative = maxConservative;
         this.stress = stress;
-        this.exertion = exertion;
+        this.tiredness = tiredness;
         this.money = money;
         this.characteristics = characteristics;
         this.inventory = inventory;
@@ -125,6 +127,7 @@ public class Player implements IEncumbrance {
         return characteristics.get(characteristicEnum);
     }
 
+    //region Encumbrance
     public int getEncumbranceOverload() {
         Characteristic characteristic = getCharacteristic(CharacteristicEnum.STRENGTH);
 
@@ -138,6 +141,26 @@ public class Player implements IEncumbrance {
     public int getEncumbranceMax() {
         return getEncumbranceOverload() + ENCUMBRANCE_OVERLOAD_TO_MAX;
     }
+
+    public int getCurrentEncumbrance() {
+        return getInventory().getCurrentEncumbrance();
+    }
+
+    public int getEncumbranceColor() {
+        int value = getInventory().getCurrentEncumbrance();
+
+        int color;
+        if (value < getEncumbranceOverload()) {
+            color = WHFRP3.getResourceColor(R.color.conservative);
+        } else if (value < getEncumbranceMax()) {
+            color = WHFRP3.getResourceColor(R.color.orange);
+        } else {
+            color = WHFRP3.getResourceColor(R.color.reckless);
+        }
+
+        return color;
+    }
+    //endregion
 
     public void addTalent(Talent talent) {
         int indexOfTalent = hasTalent(talent);
@@ -160,7 +183,7 @@ public class Player implements IEncumbrance {
         return getCharacteristic(CharacteristicEnum.WILLPOWER).getValue() * 2;
     }
 
-    public int getMaxExertionBeforeComa() {
+    public int getMaxTirednessBeforeComa() {
         return getCharacteristic(CharacteristicEnum.TOUGHNESS).getValue() * 2;
     }
 
@@ -327,12 +350,12 @@ public class Player implements IEncumbrance {
         this.stress = stress;
     }
 
-    public int getExertion() {
-        return this.exertion;
+    public int getTiredness() {
+        return this.tiredness;
     }
 
-    public void setExertion(int exertion) {
-        this.exertion = exertion;
+    public void setTiredness(int tiredness) {
+        this.tiredness = tiredness;
     }
 
     public Money getMoney() {
@@ -406,7 +429,7 @@ public class Player implements IEncumbrance {
         sb.append(", conservative=").append(conservative);
         sb.append(", maxConservative=").append(maxConservative);
         sb.append(", stress=").append(stress);
-        sb.append(", exertion=").append(exertion);
+        sb.append(", tiredness=").append(tiredness);
         sb.append(", money=").append(money);
         sb.append(", characteristics=").append(characteristics);
         sb.append(", inventory=").append(inventory);

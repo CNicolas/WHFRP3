@@ -116,7 +116,7 @@
     <string name="btn_add">Ajouter</string>
     <string name="btn_remove">Enlever</string>
     <string name="error_title">Erreur</string>
-    <string name="exertion">Fatigue</string>
+    <string name="tiredness">Fatigue</string>
     <string name="stress">Stress</string>
     <string name="talent_faith">Foi</string>
     <string name="talent_reputation">Réputation</string>
@@ -173,6 +173,7 @@
     <string name="recklessLabelWithColon">Témérité :</string>
     <string name="woundsLabelWithColon">Blessures :</string>
     <string name="stanceLabelWithColon">Attitude :</string>
+    <string name="negative_money">Pas assez d\'argent</string>
     <!-- End of inventory -->
 
 </resources>
