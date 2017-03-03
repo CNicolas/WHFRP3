@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.whfrp3.R;
 import com.whfrp3.WHFRP3;
@@ -112,6 +113,11 @@ public class AdventureFragmentViewHolder extends BaseFragmentViewHolder {
         updateMoney(player);
     }
 
+    public void updateStressAndTiredness(Player player) {
+        playerStressTextView.setText(getTextValueFromInt(player.getStress()));
+        playerTirednessTextView.setText(getTextValueFromInt(player.getTiredness()));
+    }
+
     public void updateStance(Player player) {
         playerStanceBar.setMin(-1 * player.getMaxConservative());
         playerStanceBar.setMax(player.getMaxReckless());
@@ -133,16 +139,34 @@ public class AdventureFragmentViewHolder extends BaseFragmentViewHolder {
 
     public void changeStress(Player player, int change) {
         int newStressValue = player.getStress() + change;
-        if (newStressValue >= 0 && newStressValue <= player.getMaxStressBeforeComa()) {
-            player.setStress(newStressValue);
+
+        if (newStressValue >= 0) {
+            if (newStressValue <= player.getMaxStressBeforeComa()) {
+                player.setStress(newStressValue);
+            } else {
+                Toast.makeText(WHFRP3.getActivity(), "You're in coma !", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(WHFRP3.getActivity(), "You can't !", Toast.LENGTH_SHORT).show();
         }
+
+        playerStressTextView.setText(getTextValueFromInt(player.getStress()));
     }
 
     public void changeTiredness(Player player, int change) {
         int newTirednessValue = player.getTiredness() + change;
-        if (newTirednessValue >= 0 && newTirednessValue <= player.getMaxTirednessBeforeComa()) {
-            player.setTiredness(newTirednessValue);
+
+        if (newTirednessValue >= 0) {
+            if (newTirednessValue <= player.getMaxTirednessBeforeComa()) {
+                player.setTiredness(newTirednessValue);
+            } else {
+                Toast.makeText(WHFRP3.getActivity(), "You're in coma !", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(WHFRP3.getActivity(), "You can't !", Toast.LENGTH_SHORT).show();
         }
+
+        playerTirednessTextView.setText(getTextValueFromInt(player.getTiredness()));
     }
 
     public void changeMoney(MoneyOperation operation) {

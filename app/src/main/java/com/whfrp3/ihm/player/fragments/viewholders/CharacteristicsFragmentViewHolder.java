@@ -145,6 +145,11 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
         LocalBroadcastManager.getInstance(WHFRP3.getActivity()).sendBroadcast(intent);
     }
 
+    public void notifyStressTirednessUpdate() {
+        Intent intent = new Intent(IPlayerNotificationConstants.STRESS_TIREDNESS_UPDATE);
+        LocalBroadcastManager.getInstance(WHFRP3.getActivity()).sendBroadcast(intent);
+    }
+
     //region Event handling
     @OnTextChanged(R.id.player_name)
     public void setPlayerName(CharSequence text) {
@@ -225,6 +230,7 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
         try {
             int value = Integer.parseInt(text.toString());
             WHFRP3.getPlayer().getCharacteristic(CharacteristicEnum.TOUGHNESS).setValue(value);
+            notifyStressTirednessUpdate();
         } catch (NumberFormatException ignored) {
         }
     }
@@ -279,6 +285,7 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
         try {
             int value = Integer.parseInt(text.toString());
             WHFRP3.getPlayer().getCharacteristic(CharacteristicEnum.WILLPOWER).setValue(value);
+            notifyStressTirednessUpdate();
         } catch (NumberFormatException ignored) {
         }
     }

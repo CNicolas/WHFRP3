@@ -51,7 +51,21 @@ public class AdventureFragment extends Fragment {
     }
 
     private void setupBroadcastReceiver() {
-        BroadcastReceiver messageReceiver = new BroadcastReceiver() {
+        BroadcastReceiver stressAndTirednessMessageReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                viewHolder.updateStressAndTiredness(WHFRP3.getPlayer());
+            }
+        };
+
+        BroadcastReceiver stanceMessageReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                viewHolder.updateStance(WHFRP3.getPlayer());
+            }
+        };
+
+        BroadcastReceiver moneyMessageReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Player player = WHFRP3.getPlayer();
@@ -59,12 +73,15 @@ public class AdventureFragment extends Fragment {
                 playerService.updatePlayer(player);
 
                 viewHolder.updateMoney(player);
-                viewHolder.updateStance(player);
             }
         };
+
+
         LocalBroadcastManager.getInstance(getActivity())
-                .registerReceiver(messageReceiver, new IntentFilter(IPlayerNotificationConstants.MONEY_UPDATE));
+                .registerReceiver(stressAndTirednessMessageReceiver, new IntentFilter(IPlayerNotificationConstants.STRESS_TIREDNESS_UPDATE));
         LocalBroadcastManager.getInstance(getActivity())
-                .registerReceiver(messageReceiver, new IntentFilter(IPlayerNotificationConstants.STANCE_UPDATE));
+                .registerReceiver(stanceMessageReceiver, new IntentFilter(IPlayerNotificationConstants.STANCE_UPDATE));
+        LocalBroadcastManager.getInstance(getActivity())
+                .registerReceiver(moneyMessageReceiver, new IntentFilter(IPlayerNotificationConstants.MONEY_UPDATE));
     }
 }
