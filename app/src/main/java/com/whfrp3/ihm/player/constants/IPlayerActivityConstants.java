@@ -4,7 +4,6 @@ package com.whfrp3.ihm.player.constants;
  * Constants used mainly in PlayerActivity.
  */
 public interface IPlayerActivityConstants {
-    String IS_IN_EDITION_BUNDLE_TAG = "isInEdition";
     String CURRENT_FRAGMENT_POSITION_BUNDLE_TAG = "fragmentPosition";
     String PLAYER_SKILL_BUNDLE_TAG = "skill";
     String WEAPON_BUNDLE_TAG = "weapon";

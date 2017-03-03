@@ -1,5 +1,7 @@
 package com.whfrp3.ihm.player.fragments.viewholders;
 
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import com.whfrp3.database.entities.Player;
 import com.whfrp3.database.enums.CharacteristicEnum;
 import com.whfrp3.database.enums.Race;
 import com.whfrp3.ihm.player.adapters.EnumSpinnerAdapter;
+import com.whfrp3.ihm.player.constants.IPlayerNotificationConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -135,6 +138,11 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
                 child.setEnabled(inEdition);
             }
         }
+    }
+
+    public void notifyStanceUpdate() {
+        Intent intent = new Intent(IPlayerNotificationConstants.STANCE_UPDATE);
+        LocalBroadcastManager.getInstance(WHFRP3.getActivity()).sendBroadcast(intent);
     }
 
     //region Event handling
@@ -308,6 +316,7 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
         try {
             int value = Integer.parseInt(text.toString());
             WHFRP3.getPlayer().setMaxConservative(value);
+            notifyStanceUpdate();
         } catch (NumberFormatException ignored) {
         }
     }
@@ -317,6 +326,7 @@ public class CharacteristicsFragmentViewHolder extends BaseFragmentViewHolder {
         try {
             int value = Integer.parseInt(text.toString());
             WHFRP3.getPlayer().setMaxReckless(value);
+            notifyStanceUpdate();
         } catch (NumberFormatException ignored) {
         }
     }

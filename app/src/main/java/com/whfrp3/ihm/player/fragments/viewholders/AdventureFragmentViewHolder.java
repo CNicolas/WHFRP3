@@ -93,9 +93,7 @@ public class AdventureFragmentViewHolder extends BaseFragmentViewHolder {
         playerTirednessTextView.setText(getTextValueFromInt(player.getTiredness()));
 
         playerStanceBar.setOnProgressChangeListener(new StanceChangeListener(playerCurrentStanceTextView));
-        playerStanceBar.setMin(-1 * player.getMaxConservative());
-        playerStanceBar.setMax(player.getMaxReckless());
-        playerStanceBar.setProgress(0);
+        updateStance(player);
 
         playerFullDefenseTextView.setText(getTextValueFromInt(player.getInventory().getFullDefenseAmount()));
         playerFullSoakTextView.setText(getTextValueFromInt(player.getInventory().getFullSoakAmount()));
@@ -111,6 +109,16 @@ public class AdventureFragmentViewHolder extends BaseFragmentViewHolder {
         playerEncumbranceBar.setDsb_value(player.getCurrentEncumbrance());
         playerEncumbranceTextView.setText(formatEncumbranceText(player));
 
+        updateMoney(player);
+    }
+
+    public void updateStance(Player player) {
+        playerStanceBar.setMin(-1 * player.getMaxConservative());
+        playerStanceBar.setMax(player.getMaxReckless());
+        playerStanceBar.setProgress(0);
+    }
+
+    public void updateMoney(Player player) {
         moneyGoldTextView.setText(getTextValueFromInt(player.getMoney().getGold()));
         moneySilverTextView.setText(getTextValueFromInt(player.getMoney().getSilver()));
         moneyBrassTextView.setText(getTextValueFromInt(player.getMoney().getBrass()));

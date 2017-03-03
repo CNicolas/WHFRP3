@@ -2,6 +2,8 @@ package com.whfrp3.ihm.player.dialog;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import com.whfrp3.R;
 import com.whfrp3.WHFRP3;
 import com.whfrp3.database.entities.model.Money;
 import com.whfrp3.database.enums.MoneyType;
+import com.whfrp3.ihm.player.constants.IPlayerNotificationConstants;
 import com.whfrp3.ihm.player.enums.MoneyOperation;
 
 public class ChangeMoneyDialogManager {
@@ -48,10 +51,17 @@ public class ChangeMoneyDialogManager {
                         Toast.makeText(WHFRP3.getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
+
+                notifyMoneyUpdate();
             }
         });
 
         return builder.create();
+    }
+
+    public void notifyMoneyUpdate() {
+        Intent intent = new Intent(IPlayerNotificationConstants.MONEY_UPDATE);
+        LocalBroadcastManager.getInstance(WHFRP3.getActivity()).sendBroadcast(intent);
     }
 
     private int getGoldAmount(View dialogView) {
